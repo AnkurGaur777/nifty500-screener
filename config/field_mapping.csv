@@ -1,0 +1,49 @@
+statement,standard_field,source_label,priority
+income,revenue,Total Revenue,1
+income,revenue,Operating Revenue,2
+income,cost_of_revenue,Cost Of Revenue,1
+income,cost_of_revenue,Reconciled Cost Of Revenue,2
+income,gross_profit,Gross Profit,1
+income,ebit,EBIT,1
+income,ebit,Operating Income,2
+income,ebitda,EBITDA,1
+income,ebitda,Normalized EBITDA,2
+income,interest_expense,Interest Expense,1
+income,interest_expense,Interest Expense Non Operating,2
+income,other_income,Other Income Expense,1
+income,other_income,Non Operating Income Expense,2
+income,other_income,Other Non Operating Income Expenses,3
+income,net_income,Net Income Common Stockholders,1
+income,net_income,Net Income,2
+income,net_income,Net Income Continuous Operations,3
+income,basic_eps,Basic EPS,1
+income,diluted_eps,Diluted EPS,1
+income,depreciation_amortization,Reconciled Depreciation Expense,1
+income,depreciation_amortization,Depreciation And Amortization In Income Statement,2
+income,depreciation_amortization,Depreciation & Amortization,3
+income,depreciation_amortization,Depreciation Amortization Depletion,4
+balance,total_assets,Total Assets,1
+balance,current_assets,Current Assets,1
+balance,cash_and_equivalents,Cash And Cash Equivalents,1
+balance,cash_and_equivalents,Cash Cash Equivalents And Short Term Investments,2
+balance,cash_and_equivalents,Cash Financial,3
+balance,receivables,Receivables,1
+balance,receivables,Accounts Receivable,2
+balance,receivables,Gross Accounts Receivable,3
+balance,inventory,Inventory,1
+balance,total_liabilities,Total Liabilities Net Minority Interest,1
+balance,total_liabilities,Total Liabilities,2
+balance,current_liabilities,Current Liabilities,1
+balance,total_debt,Total Debt,1
+balance,total_debt,Long Term Debt And Capital Lease Obligation,2
+balance,shareholders_equity,Stockholders Equity,1
+balance,shareholders_equity,Common Stock Equity,2
+balance,shareholders_equity,Total Equity Gross Minority Interest,3
+balance,retained_earnings,Retained Earnings,1
+balance,ordinary_shares_number,Ordinary Shares Number,1
+balance,ordinary_shares_number,Share Issued,2
+cashflow,operating_cash_flow,Operating Cash Flow,1
+cashflow,operating_cash_flow,Cash Flow From Continuing Operating Activities,2
+cashflow,capital_expenditure,Capital Expenditure,1
+cashflow,capital_expenditure,Capital Expenditure Reported,2
+cashflow,free_cash_flow,Free Cash Flow,1
