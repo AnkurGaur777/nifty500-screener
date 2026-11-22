@@ -1,0 +1,17 @@
+# Data
+data/raw/
+data/interim/
+
+# Environment variables
+.env
+
+# Python / Virtual environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
