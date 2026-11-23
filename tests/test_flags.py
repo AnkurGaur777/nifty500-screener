@@ -1,7 +1,6 @@
 """Unit tests for the 8 red-flag rules and boundary edge cases."""
 
 from typing import Any
-import pytest
 
 
 def evaluate_red_flags(
