@@ -2,11 +2,13 @@
 
 import logging
 from pathlib import Path
+
 import numpy as np
 import pandas as pd
 from sqlalchemy import MetaData, Table, create_engine
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.engine import Engine
+from sqlalchemy.exc import SQLAlchemyError
 
 from src.screener.config import (
     CONFIG_DIR,
@@ -29,7 +31,7 @@ def load_constituents(file_path: Path) -> pd.DataFrame:
         series_clean = df["Series"].astype(str).str.strip().str.upper()
         df = df[series_clean.isin(["EQ", "BE"])].copy()
 
-    for col in df.select_dtypes(include="object").columns:
+    for col in df.select_dtypes(include=["object", "string"]).columns:
         df[col] = df[col].astype(str).str.strip()
 
     df = df.rename(
@@ -55,7 +57,7 @@ def apply_overrides(df: pd.DataFrame, overrides_file: Path) -> pd.DataFrame:
 
     try:
         overrides = pd.read_csv(overrides_file).dropna(how="all")
-    except Exception as exc:
+    except (OSError, pd.errors.EmptyDataError, pd.errors.ParserError) as exc:
         logger.warning("Could not read overrides file %s: %s", overrides_file, exc)
         return df
 
@@ -196,7 +198,7 @@ def run_reference_pipeline() -> None:
         engine = create_engine(db_url)
         upserted = upsert_companies(df, engine, snapshot_date=SNAPSHOT_DATE)
         logger.info("Successfully upserted %d companies into dim_company", upserted)
-    except Exception as exc:
+    except SQLAlchemyError as exc:
         logger.warning(
             "Database upsert skipped (database not reachable): %s",
             exc,
